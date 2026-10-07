@@ -16,7 +16,7 @@
 <section id="join" hidden>
   <div class="join-box">
     <h1 id="joinTitle">Q&amp;A</h1>
-    <p class="join-lead" data-en="Ask a question or leave a comment in English or Japanese. It will be translated and shown on the screen.">質問やコメントを、日本語でも英語でもどうぞ。自動で翻訳されてスクリーンに表示されます。<br>
+    <p class="join-lead" data-en="Please use this during the Q&amp;A session. Tap the mic and ask your question in English, or type it in English or Japanese. It will be translated and shown on the screen.">質問やコメントを、日本語でも英語でもどうぞ。自動で翻訳されてスクリーンに表示されます。<br>
       <span lang="en">Ask in English or Japanese. Your words are translated and shown on the screen.</span></p>
     <label for="nameInput" data-en="Your name">お名前 / Your name</label>
     <input id="nameInput" type="text" maxlength="24" autocomplete="nickname" placeholder="例：Aiko / e.g. Sam" data-en-ph="e.g. Sam">
@@ -44,7 +44,7 @@
 
   <div class="stage">
     <div id="log" class="log" aria-live="polite">
-      <p id="empty" class="empty" data-en="No messages yet. Tap a mic button and speak.">
+      <p id="empty" class="empty" data-en="Please use this during the Q&amp;A session. No questions yet.">
         <span>まだ発言はありません。マイクボタンを押して話してください。</span>
         <span lang="en">No messages yet. Tap a mic button and speak.</span>
       </p>
@@ -59,6 +59,7 @@
   <div id="live" class="live"></div>
 
   <footer id="composer" class="composer">
+    <p class="composer-note" data-en="For the Q&amp;A session: tap the mic and speak in English, or type in English or Japanese."></p>
     <div id="idle" class="row mics">
       <button id="micJa" class="mic" data-lang="ja" data-en-html="&lt;span class=&quot;ico&quot;&gt;🎙&lt;/span&gt;Speak Japanese"><span class="ico">🎙</span>日本語で話す</button>
       <button id="micEn" class="mic" data-lang="en"><span class="ico">🎙</span>Speak English</button>

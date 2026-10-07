@@ -169,3 +169,6 @@ body.en-only .msg[data-lang="ja"] .orig,
 body.en-only .msg[data-lang="en"] .trans { display: none; }
 body.en-only .msg .orig { margin-top: .3em; font-size: 1.12em; font-weight: 500; color: var(--ink); }
 body.en-only .rec-preview:empty::before { content: "Listening…"; }
+body.en-only #micJa { display: none; }
+.composer-note { display: none; margin: 0; font-size: .85rem; color: var(--muted); text-align: center; }
+body.en-only .composer-note { display: block; }
