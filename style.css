@@ -163,3 +163,9 @@ dialog::backdrop { background: rgba(0,0,0,.4); }
   .msg { max-width: 92%; }
 }
 @media (prefers-reduced-motion: reduce) { .msg { animation: none; } }
+
+/* 参加者スマホ：英語のみ表示 */
+body.en-only .msg[data-lang="ja"] .orig,
+body.en-only .msg[data-lang="en"] .trans { display: none; }
+body.en-only .msg .orig { margin-top: .3em; font-size: 1.12em; font-weight: 500; color: var(--ink); }
+body.en-only .rec-preview:empty::before { content: "Listening…"; }

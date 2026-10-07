@@ -16,12 +16,12 @@
 <section id="join" hidden>
   <div class="join-box">
     <h1 id="joinTitle">Q&amp;A</h1>
-    <p class="join-lead">質問やコメントを、日本語でも英語でもどうぞ。自動で翻訳されてスクリーンに表示されます。<br>
+    <p class="join-lead" data-en="Ask a question or leave a comment in English or Japanese. It will be translated and shown on the screen.">質問やコメントを、日本語でも英語でもどうぞ。自動で翻訳されてスクリーンに表示されます。<br>
       <span lang="en">Ask in English or Japanese. Your words are translated and shown on the screen.</span></p>
-    <label for="nameInput">お名前 / Your name</label>
-    <input id="nameInput" type="text" maxlength="24" autocomplete="nickname" placeholder="例：Aiko / e.g. Sam">
-    <button id="joinBtn" class="primary">参加する / Join</button>
-    <p class="join-note">iPhone は Safari、Android は Chrome で開いてください。<br>
+    <label for="nameInput" data-en="Your name">お名前 / Your name</label>
+    <input id="nameInput" type="text" maxlength="24" autocomplete="nickname" placeholder="例：Aiko / e.g. Sam" data-en-ph="e.g. Sam">
+    <button id="joinBtn" class="primary" data-en="Join">参加する / Join</button>
+    <p class="join-note" data-en="Please use Safari on iPhone, or Chrome on Android.">iPhone は Safari、Android は Chrome で開いてください。<br>
       <span lang="en">Use Safari on iPhone, Chrome on Android.</span></p>
   </div>
 </section>
@@ -44,7 +44,7 @@
 
   <div class="stage">
     <div id="log" class="log" aria-live="polite">
-      <p id="empty" class="empty">
+      <p id="empty" class="empty" data-en="No messages yet. Tap a mic button and speak.">
         <span>まだ発言はありません。マイクボタンを押して話してください。</span>
         <span lang="en">No messages yet. Tap a mic button and speak.</span>
       </p>
@@ -60,19 +60,19 @@
 
   <footer id="composer" class="composer">
     <div id="idle" class="row mics">
-      <button id="micJa" class="mic" data-lang="ja"><span class="ico">🎙</span>日本語で話す</button>
+      <button id="micJa" class="mic" data-lang="ja" data-en-html="&lt;span class=&quot;ico&quot;&gt;🎙&lt;/span&gt;Speak Japanese"><span class="ico">🎙</span>日本語で話す</button>
       <button id="micEn" class="mic" data-lang="en"><span class="ico">🎙</span>Speak English</button>
     </div>
     <div id="recording" class="recording" hidden>
       <p id="recPreview" class="rec-preview"></p>
       <div class="row">
-        <button id="cancelBtn" class="ghost">取消 / Cancel</button>
-        <button id="stopBtn" class="primary">話し終えたら送信 / Send</button>
+        <button id="cancelBtn" class="ghost" data-en="Cancel">取消 / Cancel</button>
+        <button id="stopBtn" class="primary" data-en="Send">話し終えたら送信 / Send</button>
       </div>
     </div>
     <form id="textForm" class="row text-row" autocomplete="off">
-      <input id="textInput" type="text" placeholder="文字で入力 / Type here" enterkeyhint="send">
-      <button type="submit">送信</button>
+      <input id="textInput" type="text" placeholder="文字で入力 / Type here" data-en-ph="Type here (English or Japanese)" enterkeyhint="send">
+      <button type="submit" data-en="Send">送信</button>
     </form>
   </footer>
 </main>

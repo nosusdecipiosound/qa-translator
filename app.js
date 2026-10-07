@@ -27,6 +27,16 @@
   };
 
   document.body.classList.add(isHost ? 'host' : 'guest');
+  // 参加者のスマホは英語のみ（config.js の guestDisplay で切替）
+  const enOnly = !isHost && CFG.guestDisplay !== 'both';
+  const T = (ja, en) => (enOnly ? en : ja);
+  if (enOnly) {
+    document.body.classList.add('en-only');
+    document.documentElement.lang = 'en';
+    document.querySelectorAll('[data-en]').forEach((el) => { el.textContent = el.dataset.en; });
+    document.querySelectorAll('[data-en-html]').forEach((el) => { el.innerHTML = el.dataset.enHtml; });
+    document.querySelectorAll('[data-en-ph]').forEach((el) => { el.placeholder = el.dataset.enPh; });
+  }
   const title = CFG.title || 'Q&A';
   $('#title').textContent = title;
   $('#joinTitle').textContent = title;
@@ -71,7 +81,7 @@
   function start() {
     $('#app').hidden = false;
     db.ref('.info/connected').on('value', (s) => {
-      status.textContent = s.val() ? '' : '接続中… / Connecting…';
+      status.textContent = s.val() ? '' : T('接続中… / Connecting…', 'Connecting…');
       if (s.val()) {
         const me = presRef.child(clientId);
         me.onDisconnect().remove();
@@ -142,7 +152,9 @@
       const p = document.createElement('p');
       p.className = 'live-item';
       const b = document.createElement('b'); b.textContent = (x.name || '') + ' 🎙';
-      const s = document.createElement('span'); s.textContent = x.text; s.lang = x.lang;
+      const s = document.createElement('span');
+      if (enOnly && x.lang === 'ja') { s.textContent = '(speaking in Japanese…)'; s.lang = 'en'; }
+      else { s.textContent = x.text; s.lang = x.lang; }
       p.append(b, s);
       box.appendChild(p);
     });
@@ -203,7 +215,8 @@
 
   function startRec(lang) {
     if (!SR) {
-      alert('このブラウザは音声認識に対応していません。iPhone は Safari、Android は Chrome をお使いください。下の欄に文字で入力することもできます。\n\nSpeech recognition is not available in this browser. Please type instead.');
+      alert(T('このブラウザは音声認識に対応していません。iPhone は Safari、Android は Chrome をお使いください。下の欄に文字で入力することもできます。\n\nSpeech recognition is not available in this browser. Please type instead.',
+        'Speech recognition is not available in this browser. Please use Safari on iPhone or Chrome on Android, or type your message below.'));
       return;
     }
     recLang = lang; want = true; cancelled = false;
@@ -227,7 +240,8 @@
     rec.onerror = (e) => {
       if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
         want = false;
-        alert('マイクが使えません。ブラウザの設定でマイクを許可してください。\nMicrophone access was blocked. Please allow it in your browser settings.');
+        alert(T('マイクが使えません。ブラウザの設定でマイクを許可してください。\nMicrophone access was blocked. Please allow it in your browser settings.',
+          'Microphone access was blocked. Please allow it in your browser settings.'));
       }
     };
     rec.onend = () => {

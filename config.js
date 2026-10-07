@@ -14,6 +14,10 @@ window.APP_CONFIG = {
   // URL に ?room=xxx が無いときに使う部屋名
   defaultRoom: "lecture",
 
+  // 参加者のスマホの表示："en" = 英語だけ（画面の文字も会話も英語）、"both" = 日英両方
+  // スクリーン用PC（?host）は常に日英両方
+  guestDisplay: "en",
+
   // 画面上部に出るタイトル
   title: "Q&A"
 };
